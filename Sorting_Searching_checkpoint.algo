@@ -1,0 +1,34 @@
+FUNCTION Sorting(VAR arr : ARRAY_OF INTEGER[n]) : arr[]
+VAR
+    i , j , ele : INTEGER := 0 ; // ele is the element that we will compare with it
+BEGIN
+// loop on the array till length-1
+    FOR i FROM 1 TO n-1 DO
+        ele = arr[i];
+        
+        // inner loop to compare ele with the previous element
+        j = i - 1;
+        WHILE ((j >= 0) AND (arr[j] > ele)) DO
+            // if the condition satisfied, move the it one position to the right
+            arr[j + 1] = arr[j];
+
+            //Move the index to the left to compare the next element
+            j = j - 1;
+        END_WHILE
+        // put the correct order of the element
+        arr[j + 1] = ele;
+
+    END_FOR
+    RETURN arr[] ;
+END
+
+ALGORITHM sort_search
+VAR
+    arr : ARRAY_OF INTEGER[n];
+BEGIN
+    Read(n)
+    Read(arr[n])
+    sorting(arr[n])
+    // after sorting type the array
+    Write(arr[n])
+END
